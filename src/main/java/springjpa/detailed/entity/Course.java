@@ -11,6 +11,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 
 @Entity
@@ -26,6 +27,9 @@ public class Course {
 
 	@OneToMany(mappedBy = "course")
 	private List<Review> reviews = new ArrayList<>();
+
+	@ManyToMany(mappedBy = "courses")
+	private List<Student> students = new ArrayList<>();
 
 	@Override
 	public String toString() {
@@ -78,5 +82,13 @@ public class Course {
 
 	public void setLastUpdatedDate(LocalDateTime lastUpdatedDate) {
 		this.lastUpdatedDate = lastUpdatedDate;
+	}
+
+	public List<Student> getStudents() {
+		return Collections.unmodifiableList(students);
+	}
+
+	public void addStudent(Student student) {
+		this.students.add(student);
 	}
 }

@@ -18,14 +18,14 @@ public class CourseRepositoryTest {
 
 	@Autowired
 	CourseRepository dao;
-	
+
 	@Test
 	@Transactional
 	public void getReviewsTest() {
 		List<Review> reviews = dao.getReviews(10003l);
 		logger.info("reviews for course with id = 100003 -> {}", reviews);
 	}
-	
+
 	@Test
 	@DirtiesContext
 	@Transactional
@@ -34,10 +34,16 @@ public class CourseRepositoryTest {
 		Review r2 = new Review(3, "Average");
 		Review r3 = new Review(5, "Best");
 		List<Review> reviews = List.of(r1, r2, r3);
-		
+
 		logger.info("Reviews for course with id=10005 -> {}", dao.getReviews(10005l));
 		logger.info("Adding reviews to course with id 10005");
 		dao.addReviews(10005l, reviews);
 		logger.info("Reviews for course with id=10005 -> {}", dao.getReviews(10005l));
+	}
+
+	@Test
+	@Transactional
+	public void getStudentsTest() {
+		logger.info("getting courses of LEARN SPRING in 100 Steps (id = 10001) -> {}", dao.getStudents(10001l));
 	}
 }

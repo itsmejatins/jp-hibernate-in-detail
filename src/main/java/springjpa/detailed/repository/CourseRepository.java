@@ -12,6 +12,7 @@ import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import springjpa.detailed.entity.Course;
 import springjpa.detailed.entity.Review;
+import springjpa.detailed.entity.Student;
 
 @Repository
 @Transactional
@@ -21,6 +22,9 @@ public class CourseRepository {
 
 	@Autowired
 	private EntityManager em;
+	
+	@Autowired
+	private ReviewRepository rDao;
 	
 	public void save(Course course) {
 		if(course.getId() != null)
@@ -61,7 +65,8 @@ public class CourseRepository {
 		}
 
 		for (Review review : reviews) {
-			em.persist(review);
+			
+			rDao.save(review);
 			course.addReview(review);
 		}
 	}
@@ -73,4 +78,14 @@ public class CourseRepository {
 		else 
 			em.remove(course);
 	}
+	
+	public List<Student> getStudents(Long courseId){
+		Course course = em.find(Course.class, courseId);
+		if(course == null) {
+			logger.warn("Attempting to find students of a course which does not exists in the database, return a null pointer to List<Student>");
+			return null;
+		}
+		return course.getStudents();
+	}
+	
 }

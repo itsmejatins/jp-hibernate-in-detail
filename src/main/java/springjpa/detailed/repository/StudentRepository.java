@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
+import springjpa.detailed.entity.Course;
 import springjpa.detailed.entity.Student;
 
 @Repository
@@ -42,6 +43,15 @@ public class StudentRepository {
 			em.remove(s);
 		else
 			logger.warn("Attempted to remove a entry which does not exist");
+	}
+	
+	public List<Course> getCourses(Long studentId){
+		Student student = em.find(Student.class, studentId);
+		if(student == null) {
+			logger.warn("Attempting to find courses of a student which does not exists in the database, return a null pointer to List<Course>");
+			return null;
+		}
+		return student.getCourses();
 	}
 
 }

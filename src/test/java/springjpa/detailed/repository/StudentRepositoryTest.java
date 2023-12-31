@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import springjpa.detailed.entity.Course;
 import springjpa.detailed.entity.Passport;
 import springjpa.detailed.entity.Student;
 
@@ -21,6 +22,8 @@ public class StudentRepositoryTest {
 	private EntityManager em;
 	@Autowired
 	StudentRepository sdao;
+	@Autowired
+	CourseRepository cdao;
 
 	@Test
 	@Transactional
@@ -44,6 +47,7 @@ public class StudentRepositoryTest {
 
 	@Test
 	@Transactional
+	@DirtiesContext
 	public void playingWithEntityManager() {
 		Student s1 = new Student("s1");
 		Student s2 = new Student("s2");
@@ -55,6 +59,30 @@ public class StudentRepositoryTest {
 		s2.setName("s2_upd"); // does not gets updated in the database
 
 		logger.info("playing with entity manager, find all students -> {}", sdao.findAll());
+	}
+	
+	@Test
+	@Transactional
+	public void getCoursesTest() {
+		logger.info("getting courses of jatin (20001) -> {}", sdao.getCourses(20001l));
+	}
+	
+	@Test
+	@Transactional
+	public void insertStudentAndCourseHardcoded() {
+		Student s = new Student("Ram");
+		Course c = new Course("Ramayan");
+		
+		em.persist(s);
+		em.persist(c);
+		s.addCourse(c);
+		c.addStudent(s);
+		
+		logger.info("details of student Ram -> {}", sdao.findById(1l));
+		logger.info("details of course Ramayan -> {}", cdao.findById(1l));
+		
+		logger.info("fetching courses of Ram -> {}", sdao.getCourses(1l));
+		logger.info("fetching students of Ramayan -> {}", cdao.getStudents(1l));
 	}
 
 }

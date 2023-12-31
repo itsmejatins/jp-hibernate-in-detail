@@ -1,10 +1,17 @@
 package springjpa.detailed.entity;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToOne;
 
@@ -18,8 +25,32 @@ public class Student {
 
 	@Column(nullable = false)
 	private String name;
+
 	@OneToOne(fetch = FetchType.LAZY)
 	private Passport passport;
+
+	@ManyToMany
+	@JoinTable(name = "STUDENT_COURSE", joinColumns = @JoinColumn(name = "STUDENT_ID"), inverseJoinColumns = @JoinColumn(name = "COURSE_ID"))
+
+	List<Course> courses = new ArrayList<>();
+
+	@Override
+	public String toString() {
+		return String.format("Student[%d, %s]", id, name);
+	}
+
+	public Student() {
+	};
+
+	public Student(String name, Passport passport) {
+		super();
+		this.name = name;
+		this.passport = passport;
+	}
+
+	public Student(String name) {
+		this.name = name;
+	}
 
 	public String getName() {
 		return name;
@@ -41,22 +72,12 @@ public class Student {
 		return this.id;
 	}
 
-	public Student() {
-	};
-
-	public Student(String name, Passport passport) {
-		super();
-		this.name = name;
-		this.passport = passport;
+	public List<Course> getCourses() {
+		return Collections.unmodifiableList(this.courses);
 	}
 
-	public Student(String name) {
-		this.name = name;
-	}
-
-	@Override
-	public String toString() {
-		return String.format("Student[%d, %s]", id, name);
+	public void addCourse(Course course) {
+		this.courses.add(course);
 	}
 
 }
