@@ -14,6 +14,7 @@ import springjpa.example.relationships.entity.Review;
 import springjpa.example.relationships.repository.CourseRepository;
 
 @SpringBootTest
+
 public class CourseRepositoryTest {
 	private Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 
