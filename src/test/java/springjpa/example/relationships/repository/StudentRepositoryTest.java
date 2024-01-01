@@ -1,4 +1,4 @@
-package springjpa.detailed.repository;
+package springjpa.example.relationships.repository;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -10,9 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import springjpa.detailed.entity.Course;
-import springjpa.detailed.entity.Passport;
-import springjpa.detailed.entity.Student;
+import springjpa.example.relationships.entity.Course;
+import springjpa.example.relationships.entity.Passport;
+import springjpa.example.relationships.entity.Student;
+import springjpa.example.relationships.repository.CourseRepository;
+import springjpa.example.relationships.repository.StudentRepository;
 
 @SpringBootTest
 public class StudentRepositoryTest {

@@ -1,4 +1,4 @@
-package springjpa.detailed.entity;
+package springjpa.example.relationships.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

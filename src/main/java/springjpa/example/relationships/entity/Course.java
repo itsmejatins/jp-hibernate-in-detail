@@ -1,4 +1,4 @@
-package springjpa.detailed.entity;
+package springjpa.example.relationships.entity;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

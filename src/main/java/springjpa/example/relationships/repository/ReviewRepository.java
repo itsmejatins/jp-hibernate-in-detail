@@ -1,4 +1,4 @@
-package springjpa.detailed.repository;
+package springjpa.example.relationships.repository;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.springframework.stereotype.Repository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
-import springjpa.detailed.entity.Course;
-import springjpa.detailed.entity.Review;
+import springjpa.example.relationships.entity.Course;
+import springjpa.example.relationships.entity.Review;
 
 @Transactional
 @Repository

@@ -1,10 +1,10 @@
-package springjpa.detailed.repository;
+package springjpa.example.relationships.repository;
 
 import org.springframework.stereotype.Repository;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import springjpa.detailed.entity.Passport;
+import springjpa.example.relationships.entity.Passport;
 
 @Repository
 public class PassportRepository {

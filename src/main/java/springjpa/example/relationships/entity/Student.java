@@ -1,4 +1,4 @@
-package springjpa.detailed.entity;
+package springjpa.example.relationships.entity;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package springjpa.detailed.repository;
+package springjpa.example.relationships.repository;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import jakarta.transaction.Transactional;
+import springjpa.example.relationships.repository.ReviewRepository;
 
 @SpringBootTest
 public class ReviewRepositoryTest {

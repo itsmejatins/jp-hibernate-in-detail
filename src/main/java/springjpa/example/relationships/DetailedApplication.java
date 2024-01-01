@@ -1,4 +1,4 @@
-package springjpa.detailed;
+package springjpa.example.relationships;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

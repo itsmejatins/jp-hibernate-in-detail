@@ -1,4 +1,4 @@
-package springjpa.detailed.repository;
+package springjpa.example.relationships.repository;
 
 import java.util.List;
 
@@ -10,7 +10,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 
 import jakarta.transaction.Transactional;
-import springjpa.detailed.entity.Review;
+import springjpa.example.relationships.entity.Review;
+import springjpa.example.relationships.repository.CourseRepository;
 
 @SpringBootTest
 public class CourseRepositoryTest {
