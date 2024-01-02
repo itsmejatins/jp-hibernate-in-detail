@@ -19,7 +19,7 @@
 - Finally we have repositories for all these entities which can be found in `springjpa.example.relashionships.repository`. These repositories contain several methods for querying these entities. They don’t make use of `Spring Data JPA` and instead use `Entity Manager`.
     - These repositories use appropriate fetching strategies like `FetchType.LAZY` and `FetchType.EAGER` depending upon the way the entities are related.
     - It makes use of **************namedQueries**************, and other methods for querying the data. The details can be found in the code.
-- The corresponding unit tests for these methods of repositories are present in `src/test/java` under similar package structure as per JUnit naming conventions.
+- The corresponding unit tests for these methods of repositories are present in `src/test/java` under similar package structure as per JUnit naming conventions. It also has a file called `JpqlTest.java` which demonstrates writing queries in JPQL to query the database.
 
 ### How to run
 

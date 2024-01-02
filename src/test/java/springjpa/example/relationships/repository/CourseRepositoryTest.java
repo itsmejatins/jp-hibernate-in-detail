@@ -48,4 +48,5 @@ public class CourseRepositoryTest {
 	public void getStudentsTest() {
 		logger.info("getting courses of LEARN SPRING in 100 Steps (id = 10001) -> {}", dao.getStudents(10001l));
 	}
+
 }
