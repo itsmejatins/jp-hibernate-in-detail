@@ -1,4 +1,4 @@
-package springjpa.example.relationships.repository;
+package springjpa.example.relationships.repository.entitymanager;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -13,8 +13,8 @@ import jakarta.persistence.PersistenceContext;
 import springjpa.example.relationships.entity.Course;
 import springjpa.example.relationships.entity.Passport;
 import springjpa.example.relationships.entity.Student;
-import springjpa.example.relationships.repository.CourseRepository;
-import springjpa.example.relationships.repository.StudentRepository;
+import springjpa.example.relationships.repository.entitymanager.CourseRepository;
+import springjpa.example.relationships.repository.entitymanager.StudentRepository;
 
 @SpringBootTest
 public class StudentRepositoryTest {

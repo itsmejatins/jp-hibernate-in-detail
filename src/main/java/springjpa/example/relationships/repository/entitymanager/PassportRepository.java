@@ -1,4 +1,4 @@
-package springjpa.example.relationships.repository;
+package springjpa.example.relationships.repository.entitymanager;
 
 import org.springframework.stereotype.Repository;
 

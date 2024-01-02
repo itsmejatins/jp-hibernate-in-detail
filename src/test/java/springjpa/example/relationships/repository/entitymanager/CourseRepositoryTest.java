@@ -1,4 +1,4 @@
-package springjpa.example.relationships.repository;
+package springjpa.example.relationships.repository.entitymanager;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import org.springframework.test.annotation.DirtiesContext;
 
 import jakarta.transaction.Transactional;
 import springjpa.example.relationships.entity.Review;
-import springjpa.example.relationships.repository.CourseRepository;
+import springjpa.example.relationships.repository.entitymanager.CourseRepository;
 
 @SpringBootTest
 
