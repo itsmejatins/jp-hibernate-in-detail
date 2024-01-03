@@ -2,6 +2,7 @@
 
 - This repository demonstrates the details use of hibernate. It contains examples which demonstrates various use cases of using ORM.
 - The database that will be used for demonstrations is H2.
+- The repositories will be created using both the methods - using entity manager and using Spring Data JPA.
 
 # Example - Relationships
 
@@ -24,8 +25,9 @@
 ### How to run
 
 - Open `data.sql` in `src/main/resources` and make sure that *SQL STATEMENTS FOR example.relationships* are uncommented. This file is used to put some initial data into the tables.
-- Go to `springjpa.example.relationships.repository` in `src/test/java`. This package contains various unit tests for all the repositories. You can run these tests.
-- These test contains methods which query the database. Later they also print the relevant database contents after modifying them. From the printed result on the console, correctness of the operations can be verified.
+- Go to `springjpa.example.relationships.repository` in `src/test/java`. This package contains various unit tests for all the repositories (Spring Data JPA repositories + Repositories created using Entity Manager). You can run these tests. 
+- These test contains methods which query the database. The `Jpql.java` contains method which demonstrates the use of some queries written using JPQL. 
+- Later they also print the relevant database contents after modifying them. From the printed result on the console, correctness of the operations can be verified.
 
 # Example - Inheritance
 

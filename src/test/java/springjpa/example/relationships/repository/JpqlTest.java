@@ -1,4 +1,4 @@
-package springjpa.example.relationships.repository.entitymanager;
+package springjpa.example.relationships.repository;
 
 import java.util.List;
 

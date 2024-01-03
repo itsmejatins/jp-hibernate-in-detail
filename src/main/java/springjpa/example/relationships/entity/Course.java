@@ -12,9 +12,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
 
 @Entity
+@NamedQuery(name = "courses_with_name_like_100_steps", query = "SELECT c FROM Course c WHERE name LIKE '%100 Steps%'")
 public class Course {
 	@Id
 	@GeneratedValue
