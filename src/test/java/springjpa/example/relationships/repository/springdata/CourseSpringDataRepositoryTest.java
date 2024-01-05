@@ -29,12 +29,14 @@ public class CourseSpringDataRepositoryTest {
 	private CourseSpringDataRepository dao;
 
 	@Test
+	@Transactional
 	public void findById_coursePresent() {
 		Optional<Course> courseOptional = dao.findById(10001l);
 		assertTrue(courseOptional.isPresent());
 	}
 
 	@Test
+	@Transactional
 	public void findById_courseAbsent() {
 		Optional<Course> courseOptional = dao.findById(123123l);
 		assertFalse(courseOptional.isPresent());
@@ -154,4 +156,5 @@ public class CourseSpringDataRepositoryTest {
 		logger.info("nameLike100Steps_SQL -> {}", dao.nameLike100Steps_SQL());
 		logger.info("nameLike100Steps_namedQuery -> {}", dao.nameLike100Steps_namedQuery());
 	}
+	
 }

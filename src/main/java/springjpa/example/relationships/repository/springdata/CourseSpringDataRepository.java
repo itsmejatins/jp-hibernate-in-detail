@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 import springjpa.example.relationships.entity.Course;
 
+//@Transactional -> You can put this annotation here, but it wont make any sense
 public interface CourseSpringDataRepository extends JpaRepository<Course, Long> {
 
 	public List<Course> findByName(String name);

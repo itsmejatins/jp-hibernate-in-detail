@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.persistence.Cacheable;
+
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -17,6 +19,7 @@ import jakarta.persistence.OneToMany;
 
 @Entity
 @NamedQuery(name = "courses_with_name_like_100_steps", query = "SELECT c FROM Course c WHERE name LIKE '%100 Steps%'")
+@Cacheable
 public class Course {
 	@Id
 	@GeneratedValue
