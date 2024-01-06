@@ -1,6 +1,9 @@
 package springjpa.example.relationships.entity;
 
+import java.util.Objects;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -13,8 +16,8 @@ public class Review {
 	@Id
 	@GeneratedValue
 	private Long id;
-	
-	@Enumerated
+
+	@Enumerated(EnumType.STRING)
 	private ReviewRating rating;
 	private String description;
 
@@ -24,6 +27,23 @@ public class Review {
 	@Override
 	public String toString() {
 		return "Review [rating=" + rating + ", description=" + description + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(description, id, rating);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Review other = (Review) obj;
+		return Objects.equals(description, other.description) && Objects.equals(id, other.id) && rating == other.rating;
 	}
 
 	public Review() {

@@ -2,6 +2,7 @@ package springjpa.example.relationships.repository.springdata;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
@@ -20,6 +21,8 @@ import org.springframework.test.annotation.DirtiesContext;
 
 import jakarta.transaction.Transactional;
 import springjpa.example.relationships.entity.Course;
+import springjpa.example.relationships.entity.Review;
+import springjpa.example.relationships.entity.enums.ReviewRating;
 
 @SpringBootTest
 public class CourseSpringDataRepositoryTest {
@@ -155,6 +158,21 @@ public class CourseSpringDataRepositoryTest {
 		logger.info("nameLike100Steps_JPQL -> {}", dao.nameLike100Steps_JPQL());
 		logger.info("nameLike100Steps_SQL -> {}", dao.nameLike100Steps_SQL());
 		logger.info("nameLike100Steps_namedQuery -> {}", dao.nameLike100Steps_namedQuery());
+	}
+	
+	@Test
+	@DirtiesContext
+	@Transactional
+	public void insertCourseWithReview() {
+		Course dummyCourse = new Course("Dummy course");
+		dummyCourse.addReview(new Review(ReviewRating.FIVE, "Dummy Review"));
+		dao.save(dummyCourse);
+		
+		Course duplicate = dao.findByName("Dummy course").get(0);
+		
+		logger.info("Added dummy course with dummy review. Retriving it and then printing its reviews -> {}", duplicate.getReviews());
+		
+		assertIterableEquals(duplicate.getReviews(), dummyCourse.getReviews());
 	}
 	
 }
