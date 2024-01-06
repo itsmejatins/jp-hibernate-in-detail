@@ -14,11 +14,11 @@ INSERT INTO student (id, name, passport_id) VALUES (20003, 'S3', 40003);
 INSERT INTO student (id, name) VALUES (20004, 'S4');
 INSERT INTO student (id, name) VALUES (20005, 'S5');
 
-INSERT INTO course ( ID,NAME,created_date,last_updated_date) VALUES (10001, 'LEARN SPRING in 100 Steps',now(),now());
-INSERT INTO course ( ID,NAME,created_date,last_updated_date)  VALUES(10002, 'LEARN REACT in 100 Steps',now(),now());
-INSERT INTO course ( ID,NAME,created_date,last_updated_date) VALUES(10003, 'LEARN DEEP LEARNING',now(),now());
-INSERT INTO course ( ID,NAME,created_date,last_updated_date) VALUES(10004, 'LEARN NLP',now(),now());
-INSERT INTO course ( ID,NAME,created_date,last_updated_date) VALUES(10005, 'LEARN COMPUTER VISION',now(),now());
+INSERT INTO course ( ID,NAME,created_date,last_updated_date, is_deleted) VALUES (10001, 'LEARN SPRING in 100 Steps',now(),now(), false);
+INSERT INTO course ( ID,NAME,created_date,last_updated_date, is_deleted)  VALUES(10002, 'LEARN REACT in 100 Steps',now(),now(), false);
+INSERT INTO course ( ID,NAME,created_date,last_updated_date, is_deleted) VALUES(10003, 'LEARN DEEP LEARNING',now(),now(), false);
+INSERT INTO course ( ID,NAME,created_date,last_updated_date, is_deleted) VALUES(10004, 'LEARN NLP',now(),now(), false);
+INSERT INTO course ( ID,NAME,created_date,last_updated_date, is_deleted) VALUES(10005, 'LEARN COMPUTER VISION',now(),now(), false);
 
 INSERT INTO review(id, rating, description, course_id) VALUES(50001, '5', 'Great course', 10001);
 INSERT INTO review(id, rating, description, course_id) VALUES(50002, '4', 'Wonderful course', 10001);
