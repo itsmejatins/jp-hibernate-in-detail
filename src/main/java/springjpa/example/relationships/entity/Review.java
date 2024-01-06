@@ -1,9 +1,11 @@
 package springjpa.example.relationships.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import springjpa.example.relationships.entity.enums.ReviewRating;
 
 @Entity
 public class Review {
@@ -11,7 +13,9 @@ public class Review {
 	@Id
 	@GeneratedValue
 	private Long id;
-	private int rating;
+	
+	@Enumerated
+	private ReviewRating rating;
 	private String description;
 
 	@ManyToOne
@@ -25,7 +29,7 @@ public class Review {
 	public Review() {
 	}
 
-	public Review(int rating, String description) {
+	public Review(ReviewRating rating, String description) {
 		this.rating = rating;
 		this.description = description;
 	}
@@ -38,11 +42,11 @@ public class Review {
 		this.course = course;
 	}
 
-	public int getRating() {
+	public ReviewRating getRating() {
 		return rating;
 	}
 
-	public void setRating(int rating) {
+	public void setRating(ReviewRating rating) {
 		this.rating = rating;
 	}
 

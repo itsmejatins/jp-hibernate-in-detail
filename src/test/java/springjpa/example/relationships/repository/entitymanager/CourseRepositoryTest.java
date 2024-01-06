@@ -11,7 +11,7 @@ import org.springframework.test.annotation.DirtiesContext;
 
 import jakarta.transaction.Transactional;
 import springjpa.example.relationships.entity.Review;
-import springjpa.example.relationships.repository.entitymanager.CourseRepository;
+import springjpa.example.relationships.entity.enums.ReviewRating;
 
 @SpringBootTest
 
@@ -32,9 +32,9 @@ public class CourseRepositoryTest {
 	@DirtiesContext
 	@Transactional
 	public void addReviewsTest() {
-		Review r1 = new Review(1, "Not good");
-		Review r2 = new Review(3, "Average");
-		Review r3 = new Review(5, "Best");
+		Review r1 = new Review(ReviewRating.ONE, "Not good");
+		Review r2 = new Review(ReviewRating.THREE, "Average");
+		Review r3 = new Review(ReviewRating.FIVE, "Best");
 		List<Review> reviews = List.of(r1, r2, r3);
 
 		logger.info("Reviews for course with id=10005 -> {}", dao.getReviews(10005l));
@@ -48,7 +48,7 @@ public class CourseRepositoryTest {
 	public void getStudentsTest() {
 		logger.info("getting courses of LEARN SPRING in 100 Steps (id = 10001) -> {}", dao.getStudents(10001l));
 	}
-	
+
 	@Test
 	@DirtiesContext
 	public void softDeleteTest() {
