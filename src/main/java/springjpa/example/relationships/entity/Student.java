@@ -14,6 +14,7 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToOne;
+import springjpa.example.relationships.entity.embeddables.Address;
 
 @Entity
 @NamedQuery(name = "find_all_students", query = "SELECT s FROM Student s")
@@ -31,12 +32,13 @@ public class Student {
 
 	@ManyToMany
 	@JoinTable(name = "STUDENT_COURSE", joinColumns = @JoinColumn(name = "STUDENT_ID"), inverseJoinColumns = @JoinColumn(name = "COURSE_ID"))
-
 	List<Course> courses = new ArrayList<>();
+	
+	private Address address;
 
 	@Override
 	public String toString() {
-		return String.format("Student[%d, %s]", id, name);
+		return String.format("Student[%d, %s, %s]", id, name, address);
 	}
 
 	public Student() {
@@ -78,6 +80,14 @@ public class Student {
 
 	public void addCourse(Course course) {
 		this.courses.add(course);
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 }
